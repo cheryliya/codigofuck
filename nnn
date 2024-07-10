@@ -1,0 +1,57 @@
+matriz = [[0 for _ in range(7)]for _ in range (10)]
+cont=1
+lista_nom=[]
+lista_rut=[]
+lista_as=[]
+while True:
+    print(".-..-.-.-C I N E    M A R K I S.-.-.-.")
+    print(".-.-..-.-M E N U.-.-.-.")
+    print("1.- Ver asientos")
+    print("2.- Comprar asientos")
+    print("3.- Ver clientes")
+    print("4.- Anular compra")
+    print("0.- Salir")
+    print("-"*20)
+    op=int(input("ingrese opcion : "))
+    if op==1:
+            print(".-.-.A S I E N T O S-.-.-.-")        
+            for f in range (10):
+                for c in range(7):
+                    matriz[f][c]=cont
+                    cont=cont+1
+            for fila in matriz:
+                for columna in fila:
+                     if columna<10:
+                          print(columna,end="  ")
+                     else:     
+                       print(columna,end=" ")
+                print("")                           
+    elif op==2:
+            print(".-.-.C O M P R A R  A S I E N T O.-.-.")
+            asiento=(input("ingrese numero de asiento : "))        
+            if asiento in lista_as:
+             print("asiento no disponible")
+            else:
+              lista_as.append(asiento)                                       
+              nombre=input("ingrese nombre : ")
+              lista_nom.append(nombre)
+              rut=(input("ingrese rut sin puntos ni guion : "))
+              lista_rut.append(rut)
+              print("compra exitosa...")        
+    elif op==3:
+           print(".-.-V E R   C L I E N T E.-.-.")
+           print("")
+           print("NOMBRE       RUT          ASIENTO")
+           for i in range(len(lista_nom)):
+            print(lista_nom[i] + '\t ' + lista_rut[i] + '\t ' + lista_as[i])
+    elif op==4:
+            print(".-.-A N U L A R  C O M P R A.-.-.")
+            rutanular=(input("ingrese rut sin puntos ni guion que decea anular :"))
+            lista_rut=[rutanular]
+            lista_rut.remove(rutanular)
+            
+    elif op==0:        
+            print("S A L I E N D O....")
+            break
+    else:
+         print("error... ingrese una opcion valida")
